@@ -3,21 +3,31 @@
 
 void Publisher::DevelopProducts()
 {
-	for (Product* emp: products)
+	for (Product* emp : products)
 	{
-		int index = rand() % Employees.size();
-		Employee *employee = Employees[index];
-		
-		employee->SetProduct(emp);
-		
-		employee->StartDevelop();
+		Transaction<Product> * productTransaction = new Transaction<Product>(emp);
+
+		SmartPointer<Transaction<Product>> * productTransactionSmartPointer = new SmartPointer<Transaction<Product>>(productTransaction);
+		for (auto it = Employees.begin(); it != Employees.end(); it++)
+		{
+			(*it)->SetProduct(productTransactionSmartPointer);
+		}
 
 		while (!emp->IsReady())
 		{
-			employee->DevelopProduct();
+			int index = rand() % Employees.size();
+			Employee *employee = Employees[index];
 
+			employee->StartDevelop();
+
+			employee->DevelopProduct();
 		}
-		Employees.erase(Employees.begin() + index);
+
+		for (auto it = Employees.begin(); it != Employees.end(); it++)
+		{
+			(*it)->ReleaseProduct();
+		}
+		delete productTransactionSmartPointer;
 	}
 }
 

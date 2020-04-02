@@ -74,7 +74,10 @@ template <typename T>
 T&SmartPointer<T>::operator*()
 {
 	if (statusPtr)
+	{
+		//std::cout << "ptr" << std::endl;
 		return *statusPtr->ptr;
+	}
 	else
 		return *(new T());
 }

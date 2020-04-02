@@ -8,10 +8,11 @@ protected:
 	float step;
 	SmartPointer<Transaction<Product>> * product;
 public:
-	void SetProduct(Product *);
+	void SetProduct(SmartPointer<Transaction<Product>> *);
 	void StartDevelop();
 	virtual void DevelopProduct() = 0;
 	void RevertProduct();
+	void ReleaseProduct();
 	Employee();
 	~Employee();
 };

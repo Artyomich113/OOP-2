@@ -25,10 +25,6 @@ int main()
 	publisher->AddProduct(product2);
 
 	publisher->DevelopProducts();
-
-
-	delete product1;
-	delete product2;
 	
 	delete employee1;
 	delete employee2;

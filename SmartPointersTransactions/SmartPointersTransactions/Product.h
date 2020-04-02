@@ -7,7 +7,6 @@ public:
 	void DoWork(float, std::string);
 	bool IsReady()
 	{
-
 		return process >= 1.0f;
 	}
 	std::string GetName();
