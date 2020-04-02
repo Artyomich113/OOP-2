@@ -4,7 +4,7 @@ class Product
 	std::string name;
 	float process;
 public:
-	void DoWork(float);
+	void DoWork(float, std::string);
 	bool IsReady()
 	{
 

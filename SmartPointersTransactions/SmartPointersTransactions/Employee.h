@@ -3,15 +3,14 @@
 
 class Employee
 {
+protected:
 	std::string name;
 	float step;
 	SmartPointer<Transaction<Product>> * product;
 public:
-	Employee(std::string,float);
-	const float failureChance = 0.9f;
 	void SetProduct(Product *);
 	void StartDevelop();
-	void DevelopProduct();
+	virtual void DevelopProduct() = 0;
 	void RevertProduct();
 	Employee();
 	~Employee();

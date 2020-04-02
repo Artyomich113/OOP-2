@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{010369EF-943D-49A0-8472-1778D2EB08F0}</ProjectGuid>
+    <ProjectGuid>{25EA1F43-B040-4165-B677-828A9759177E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>SmartPointersTransactions</RootNamespace>
+    <RootNamespace>Exceptions</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,32 +151,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ChadEmployee.h" />
-    <ClInclude Include="Employee.h" />
-    <ClInclude Include="EmployeeStudent.h" />
+    <ClInclude Include="AliveTarget.h" />
+    <ClInclude Include="BudgetException.h" />
+    <ClInclude Include="FuneralTarget.h" />
+    <ClInclude Include="Flower.h" />
+    <ClInclude Include="Order.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Product.h" />
-    <ClInclude Include="Publisher.h" />
-    <ClInclude Include="RandomF.h" />
-    <ClInclude Include="SmartPointer.h" />
-    <ClInclude Include="Transaction.h" />
+    <ClInclude Include="Target.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ChadEmployee.cpp" />
-    <ClCompile Include="Employee.cpp" />
-    <ClCompile Include="EmployeeStudent.cpp" />
+    <ClCompile Include="AliveTarget.cpp" />
+    <ClCompile Include="BudgetException.cpp" />
+    <ClCompile Include="FuneralTarget.cpp" />
+    <ClCompile Include="Exceptions.cpp" />
+    <ClCompile Include="Flower.cpp" />
+    <ClCompile Include="Order.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Product.cpp" />
-    <ClCompile Include="Publisher.cpp" />
-    <ClCompile Include="RandomF.cpp" />
-    <ClCompile Include="SmartPointer.cpp" />
-    <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="Target.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

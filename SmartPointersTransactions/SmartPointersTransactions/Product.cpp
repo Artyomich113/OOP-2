@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "Product.h"
 
-void Product::DoWork(float step)
+void Product::DoWork(float step, std::string employee)
 {
 	process += step;
-	std::cout <<name << " " << process << std::endl;
+	std::cout <<name << " " << process << " " << employee << std::endl;
 }
 
 std::string Product::GetName()

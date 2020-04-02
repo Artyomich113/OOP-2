@@ -9,13 +9,9 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include "RandomF.h"
-#include <iostream>
-#include <cassert>
-#include <string>
-#include <vector>
-#include <list>
-#include "SmartPointer.h"
-#include "Transaction.h"
 // TODO: add headers that you want to pre-compile here
+#include <vector>
+#include <iostream>
+#include <exception>
+
 #endif //PCH_H
