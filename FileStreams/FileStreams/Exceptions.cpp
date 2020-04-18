@@ -9,6 +9,8 @@
 #include "Target.h"
 #include "Order.h"
 
+//исключени€ неправильного количества цветов и бюджета(собственное).
+
 void term_func()
 {
 	std::cout << "looks like you've played with exceptions way too much\n";
@@ -19,63 +21,37 @@ void term_func()
 
 int main()
 {
-	// мен€€ таргет можно тригерить четность заказа AliveTarget() или FuneralTarget()
+// мен€€ таргет можно тригерить четность заказа AliveTarget() или FuneralTarget()
 	Target * target = new AliveTarget(100);
-	Order * order = new Order(target);
-	Flower * flower1 = new Flower(30);
+	//стоимость цветов и бюджет может тригерить исключение бюджета
+	Flower * flower1 = new Flower(10);
 	Flower * flower2 = new Flower(20);
-	Flower * flower3 = nullptr;
+	Flower * flower3 = new Flower(130);
+	Flower * flower4 = nullptr;
 
-	int exception = 0;
-	std::cout << "try exception 1) budget 2) quantity 3) constructor 4) redirected" << std::endl;
-	std::cin >> exception;
-	switch (exception)
+	try
 	{
-	case 1:
-		flower3 = new Flower(100);
-		order->PutFlower(flower1);
-		order->PutFlower(flower2);
-		order->PutFlower(flower3);
-		break;
-	case 2:
-		order->PutFlower(flower1);
-		order->PutFlower(flower2);
-		break;
-	case 3:
-	{
-		flower3 = new Flower(10);
-		order->PutFlower(flower1);
-		order->PutFlower(flower2);
-		order->PutFlower(flower3);
-
-		try
-		{
-			new Flower(-20.0f);//исключение в конструкторе
-		}
-		catch (float i)
-		{
-			std::cout << "constructor exception" << i << std::endl;
-			//оператор new не вернул указатель
-		}
-		break;
+		flower4 = new Flower(-20.0f);//исключение в конструкторе
 	}
-	case 4:
-		flower3 = new Flower(10);
-		break;
-	default:
-		exit(-1);
-		break;
+	catch (float i)
+	{
+		std::cout << "constructor exception" << i << " " << (int)flower4 << std::endl;
+		//оператор new не вернул указатель
 	}
 
-
-
+	Order * order = new Order(target);
+	//измен€€ четность можно тригерить исключение четности заказа
+	order->PutFlower(flower1);
+	order->PutFlower(flower2);
+	order->PutFlower(flower3);
+	
 	std::set_terminate(term_func);
 	try
 	{
 		order->CommitOrder();
 		std::cout << "Order finished\n";
 	}
-	catch (BudgetException* e)//исключение в бюджете, если суммарна€ сумма цветов больше бюджета
+	catch (BudgetException* e)//исключение в бюджете, если суммарна€ сумма больше бюджета
 	{
 		std::cout << "budget limit exceded " << e->orderPrice << " of " << e->requiredBudget << std::endl;
 		delete e;
@@ -88,7 +64,7 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
-
+	
 	delete flower1;
 	delete flower2;
 	delete flower3;
