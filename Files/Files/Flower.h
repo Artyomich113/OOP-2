@@ -11,5 +11,7 @@ public:
 	float GetCost();
 	friend std::istream & operator >>(std::istream& s, Flower & d);
 	friend std::ostream & operator <<(std::ostream& s, Flower & d);
+
+
 };
 

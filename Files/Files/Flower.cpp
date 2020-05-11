@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Flower.h"
+#include "Input.h"
 
 Flower::Flower(float cost_, std::string name)
 {
@@ -36,18 +37,14 @@ float Flower::GetCost()
 	return cost;
 }
 
-std::istream & operator>>(std::istream & s, Flower & d)
+std::istream & operator>>(std::istream & stream, Flower & flower)
 {
-	char c;
-	char *buf = new char[50];
-	s >> d.cost >> c >> c >> buf >> c;
-	d.name = buf;
-	delete buf;
-	return s;
+	stream >> flower.name >> flower.cost;
+	return stream;
 }
 
-std::ostream & operator<<(std::ostream & s, Flower & d)
+std::ostream & operator<<(std::ostream & stream, Flower & flower)
 {
-	s << d.cost << "\'-" << d.name.c_str() << '\"';
-	return s;
+	stream << flower.name << std::endl << flower.cost << std::endl;
+	return stream;
 }

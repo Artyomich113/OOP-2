@@ -10,6 +10,16 @@ void Order::PutFlower(Flower * flower)
 	flowers.push_back(flower);
 }
 
+void Order::PutTarget(Target *target)
+{
+	this->target = target;
+}
+
+void Order::Remove(std::vector<Flower*>::iterator it)
+{
+	flowers.erase(it);
+}
+
 float Order::GetPrice() const
 {
 	float cost = 0.0f;
@@ -23,6 +33,10 @@ float Order::GetPrice() const
 Order::Order(Target * target)
 {
 	this->target = target;
+}
+
+Order::Order()
+{
 }
 
 const std::vector<Flower*> & Order::CommitOrder() const

@@ -9,9 +9,13 @@
 #ifndef PCH_H
 #define PCH_H
 
-// TODO: add headers that you want to pre-compile here
-#include <vector>
-#include <iostream>
-#include <exception>
 #include <fstream>
+#include <sstream>
+#include <string>
+#include <list>
+#include <map>
+#include <iostream>
+#include <cctype>
+// TODO: add headers that you want to pre-compile here
+
 #endif //PCH_H
